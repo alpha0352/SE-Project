@@ -5,6 +5,8 @@ var router = express.Router();
 
 var database = require('../db');
 
+const {renderhomepage} = require("../controller/passenger");
+
 var countries = require("i18n-iso-countries");
 
 router.get("/", function(request, response, next){
@@ -26,10 +28,7 @@ router.get("/", function(request, response, next){
 
 });
 
-router.get("/home", function(request, response, next){
-  response.render('home');
-});
-
+router.get("/home", renderhomepage);
 
 // router.get("/searchflight", function(request, response, next){
 
@@ -161,3 +160,4 @@ router.post("/passengerdetails/detinputs",function(req,res,next){
       })
   }
 })
+module.exports=router;
