@@ -8,6 +8,7 @@ var database = require('../db');
 var countries = require("i18n-iso-countries");
 
 const {renderhomepage} = require("../controller/passenger");
+const { body } = require('express-validator');
 
 router.get("/", function(request, response, next){
 
@@ -151,25 +152,26 @@ if(srchfltdetails[4]==1)
       }
       else
       {
-        //res.redirect('/users/payment');//redirect to show my bookings
+        var bookquery = `INSERT INTO bookings values(
+          concat(SUBSTR("${req.body.pasprtno}",1,7),date_format(NOW(),'%d%m%y')),
+          concat("${req.body.citizen}","${req.body.pasprtno}"),
+          "${bookdet[0][0]}",
+          "XX",
+          "${req.body.class}",
+          "999"
+        )`; //999 to be edited by price in bookdet array
+      
+        database.query(bookquery,function(error, data)
+        {
+          if(error)
+          {
+            console.log(i);
+            throw error; 
+          }
+        })
+    
       }
     })
-    // var bookquery = `INSERT INTO bookings values(
-    //   concat(SUBSTR("${req.body.pasprtno[i]}",1,7),date_format(NOW(),'%d%m%y')),
-    //   concat("${req.body.citizen[i]}","${req.body.pasprtno[i]}")),
-    //   "${bookdet[0][0]}","XX","${req.body.class}",
-    //   999 
-    // )`; //999 to be edited by price in bookdet array
-  
-    // database.query(bookquery,function(error, data)
-    // {
-    //   if(error)
-    //   {
-    //     console.log(i);
-    //     throw error; 
-    //   }
-    // })
-
 } 
 else{
 
@@ -188,25 +190,25 @@ else{
           throw error; 
         }
       })
-      
-      // var bookquery = `INSERT INTO bookings values(
-      //   concat(SUBSTR("${req.body.pasprtno[i]}",1,7),date_format(NOW(),'%d%m%y')),
-      //   concat("${req.body.citizen[i]}","${req.body.pasprtno[i]}")),
-      //   "${bookdet[0][0]}","XX","${req.body.class}",
-      //   999 
-      // )`; //999 to be edited by price in bookdet array
+
+      var bookquery = `INSERT INTO bookings values(
+        concat(SUBSTR("${req.body.pasprtno[i]}",1,7),date_format(NOW(),'%d%m%y')),
+        concat("${req.body.citizen[i]}","${req.body.pasprtno[i]}"),
+        "${bookdet[0][0]}","XX","${req.body.class[i]}",
+        "999"
+      )`; //999 to be edited by price in bookdet array
     
-      //   database.query(bookquery,function(error, data)
-      //   {
-      //     if(error)
-      //     {
-      //       console.log(i);
-      //       throw error; 
-      //     }
-      //   })
+        database.query(bookquery,function(error, data)
+        {
+          if(error)
+          {
+            console.log(i);
+            throw error; 
+          }
+        })
+
 
   }
-  //res.redirect('/users/payment');
 }
 
 })
