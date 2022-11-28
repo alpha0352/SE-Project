@@ -28,7 +28,7 @@ const LoginUser = async (req, res, next) => {
       message: ''
     });
   } else {
-    var sql = `SELECT name,password FROM users WHERE name = '${name}'`;
+    var sql = `SELECT name,password FROM users WHERE name = '${name}' AND role = 'user'`;
     db.query(sql, async function (err, result) {
       if (err) {
         throw err;
@@ -51,7 +51,9 @@ const LoginUser = async (req, res, next) => {
           //   exists: 'user exists in db',
           //   alert: undefined
           // })
-          res.render('home');
+          req.session.result = result;
+          console.log(req.session.result,result);
+          res.render('home',{username: result[0].name});
         }
       } 
       else {
