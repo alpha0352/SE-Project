@@ -1,0 +1,274 @@
+<div id="sidebar" class='active'>
+   <div class="sidebar-wrapper active">
+      <div class="sidebar-header" style="height: 50px;margin-top: -30px">
+         <i class="fa fa-paper-plane text-success me-4"></i>
+         <span>GDC</span>
+      </div>
+      <div class="sidebar-menu">
+         <ul class="menu">
+            <li class="sidebar-item active">
+               <a class='sidebar-link'>
+                  <form action="/admin/dashboard" method="GET">
+                     <button class="special">
+                        <i class="fa fa-home text-success"></i>
+                        <span>Dashboard</span>
+                     </button>
+                  </form>
+               </a>
+            </li>
+            <li class="sidebar-item  has-sub">
+               <a href="#" class='sidebar-link'>
+                  <i class="fa fa-building text-success"></i>
+                  <span>Department</span>
+               </a>
+               <ul class="submenu ">
+                  <li>
+                     <form action="/admin/adddepartment" method="get">
+                        <a>
+                           <button class="special">
+                              Add Department
+                           </button>
+                        </a>
+
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/managedepartment" method="get">
+                        <a>
+                           <button class="special"> Manage Department
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+               </ul>
+            </li>
+            <li class="sidebar-item  has-sub">
+               <a href="#" class='sidebar-link'>
+                  <i class="fa fa-check text-success"></i>
+                  <span>Designation</span>
+               </a>
+               <ul class="submenu ">
+                  <li>
+                     <form action="/admin/adddesignation" method="get">
+                        <a>
+                           <button class="special">
+                              Add Designation
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/managedesignation" method="get">
+                        <a>
+                           <button class="special">
+                              Manage Designation
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+
+               </ul>
+            </li>
+            <li class="sidebar-item  has-sub">
+               <a href="#" class='sidebar-link'>
+                  <i class="fa fa-users text-success"></i>
+                  <span>Employees</span>
+               </a>
+               <ul class="submenu ">
+                  <li>
+                     <form action="/admin/addemployee" method="get">
+                        <a>
+                           <button class="special">
+                              Add Employee
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/manageemployee" method="get">
+                        <a>
+                           <button class="special">
+                              Manage Employee
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+
+               </ul>
+            </li>
+            <!-- <li class="sidebar-item  has-sub">
+                   <a href="#" class='sidebar-link'>
+                   <i class="fa fa-table text-success"></i>
+                   <span>Leave Type</span>
+                   </a>
+                   <ul class="submenu ">
+                      <li>
+                         <a href="add_leave_type.html">Add Leave Type</a>
+                      </li>
+                      <li>
+                         <a href="manage_leave_type.html">Manage Leave Type</a>
+                      </li>
+                   </ul>
+                </li> -->
+            <!-- <li class="sidebar-item  has-sub">
+                   <a href="#" class='sidebar-link'>
+                   <i class="fa fa-table text-success"></i>
+                   <span>Leave Management</span>
+                   </a>
+                   <ul class="submenu ">
+                      <li>
+                         <a href="all_leave.html">All Leaves</a>
+                      </li>
+                      <li>
+                         <a href="pending_leave.html">Pending Leaves</a>
+                      </li>
+                      <li>
+                         <a href="approve_leave.html">Approve Leaves</a>
+                      </li>
+                      <li>
+                         <a href="not_approve_leave.html">Not Approve Leaves</a>
+                      </li>
+                   </ul>
+                </li> -->
+            <li class="sidebar-item  has-sub">
+               <a href="#" class='sidebar-link'>
+                  <i class="fa fa-user text-success"></i>
+                  <span>Users</span>
+               </a>
+               <ul class="submenu ">
+                  <li>
+                     <form action="/admin/adduser" method="get">
+                        <a>
+                           <button class="special">
+                              Add User
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/manageuser" method="get">
+                        <a>
+                           <button class="special">
+                              Manage User
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+               </ul>
+            </li>
+            <li class="sidebar-item ">
+               <form action="/admin/viewpassengers" method="get">
+                  <a class='sidebar-link'>
+                     <button class="special">
+                        <i class="fa fa-route text-success"></i>
+                        <span>View Passengers</span>
+                     </button>
+                  </a>
+               </form>
+            </li>
+            <li class="sidebar-item  has-sub">
+               <a href="#" class='sidebar-link'>
+                  <i class="fa fa-plane-departure text-success"></i>
+                  <span>Flight</span>
+               </a>
+               <ul class="submenu ">
+                  <li>
+                     <form action="/admin/addflight" method="get">
+                        <a>
+                           <button class="special">
+                              Add Flight
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/addflightschedule" method="get">
+                        <a>
+                           <button class="special">
+                              Add Schedule
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/manageflight" method="get">
+                        <a>
+                           <button class="special">
+                              Manage Flight
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+
+               </ul>
+               <ul class="submenu ">
+                  <li>
+                     <form action="/admin/addflight" method="get">
+                        <a>
+                           <button class="special">
+                              Add Flight
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/addflightschedule" method="get">
+                        <a>
+                           <button class="special">
+                              Add Schedule
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/manageflight" method="get">
+                        <a>
+                           <button class="special">
+                              Manage Flight
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+               </ul>
+            <li class="sidebar-item  has-sub">
+               <a href="#" class='sidebar-link'>
+                  <i class="fa fa-plane text-success"></i>
+                  <span>Airplane</span>
+               </a>
+               <ul class="submenu ">
+                  <li>
+                     <form action="/admin/addairplane" method="get">
+                        <a>
+                           <button class="special">
+                              Add Airplane
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  <li>
+                     <form action="/admin/manageairplane" method="get">
+                        <a>
+                           <button class="special">
+                              Manage Airplnae
+                           </button>
+                        </a>
+                     </form>
+                  </li>
+                  
+               </ul>
+            </li>
+            <li class="sidebar-item ">
+               <a class='sidebar-link'>
+                  <form action="/admin/viewreview" method="GET">
+                     <button class="special">
+                        <i class="fa fa-chart-bar text-success"></i>
+                        <span>Reviews</span>
+                     </button>
+                  </form>
+               </a>
+            </li>
+         </ul>
+      </div>
+      <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+   </div>
+</div>

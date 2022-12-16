@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/viewbooking.css">        
+    <title>My Booking</title>
+</head>
+<body>
+
+    <!--NavBar-->
+    <nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/users/home" class="navbar-brand"><img src="/images/4b5d99c4-2f06-45be-88b2-5e4bb39f9885.png" id="logo"> GDC AIRWAYS</a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        		<span class="sr-only">Toggle navigation</span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	      </button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#"><strong>Home</strong></a></li>
+					<li><a href="/users/review"><strong>Review</strong></a></li>
+					<li><a href="/users/viewbooking"><strong>My Bookings</strong></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+          <% if(issession=="false"){ %>
+            <li><a><form method="get" action="/users/signup"><button class="newbtn">Sign Up</button></form></a></li>
+            <li><a><form method="get" action="/users/signin"><button class="newbtn">Login</button></form></a></li>
+          <%}
+          else{%>
+            <li><a><form method="get" action="/users/signout"><button class="newbtn">Logout</button></form></a></li>
+            <li><a><strong><%= username %> </strong><i class="fas fa-user"></i></a></li>
+            <%}%>
+        </ul>
+		</div>
+	</nav>
+	<div id = "listdiv1">
+		<h3>Booking Details</h3>
+	</div>
+	<div class="row">
+		<div class="col-md-6" id="br">
+			<h3>Booking Reference:</h3>
+			<h4><%=psngrdata[0].bookid%></h4>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" id="locations">
+			<div class="col-md-6"><h3>Departure Location:</h3><h4><%=psngrdata[0].deploc%></h4></div>
+			<div class="col-md-6"><h3>Arrival Location:</h3><h4><%=psngrdata[0].arrloc%></h4></div>
+		</div>
+		<!-- <div class="row" id="flights" >
+			<div class="col-md-6"><h3 id="deptheading">Departure Flight:</h3><h4>EK-304</h4></div>
+			<div class="col-md-6"><h3>Arrival Flight:</h3><h4>EK-306</h4></div>
+		</div> -->
+		<div class="row">
+			<div class="col-md-6"><h3>Departure Date:</h3><h4><%=psngrdata[0].departuredate%></h4></div>
+			<div class="col-md-6"><h3>Arrival Date:</h3><h4><%=psngrdata[0].arrivaldate%></h4></div>
+		</div>
+		<div class="row">
+			<div class="col-md-6"><h3>Departure Time:</h3><h4><%=psngrdata[0].departure%></h4></div>
+			<div class="col-md-6"><h3>Arrival Time:</h3><h4><%=psngrdata[0].arrival%></h4></div>
+		</div>
+		<div class="row" id="phead">
+			<div class="col-md-4" ><p class="psngrheading">Passenger:</p></div>
+		</div>
+		<%psngrdata.forEach(function(data){%>
+		<div class="row">
+			<div class="col-md-4"><h3>Passenger Name:</h3></div>
+			<div class="col-md-4"><h4><%=data.fullname%></h4></div>
+			<div class="col-md-4"><a href="/users/edit/<%=data.passportno%>" class = "bkbtn">EDIT</a></div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"><h3>Passport No:</h3></div>
+			<div class="col-md-4"><h4><%=data.passportno%></h4></div>
+			<div class="col-md-4"><a href="/users/delete/<%=data.passportno%>" class = "bkbtn">DELETE</a></div>
+		</div>
+		<%})%>
+	</div>
+</body>
+</html>

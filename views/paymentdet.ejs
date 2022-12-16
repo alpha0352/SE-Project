@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/carddetails.css">
+    <script src="/javascripts/carddetails.js" defer></script>
+    <title>Payment</title>
+</head>
+<body>
+    <div class="outsidebody">
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="#" class="navbar-brand"><img src="/images/4b5d99c4-2f06-45be-88b2-5e4bb39f9885.png" id="logo"> GDC AIRWAYS</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+              </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#"><strong>Home</strong></a></li>
+                        <li><a href="/users/review"><strong>Review</strong></a></li>
+                        <li><a href="/users/viewbooking"><strong>My Bookings</strong></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+              <% if(issession=="false"){ %>
+                <li><a><form method="get" action="/users/signup"><button class="newbtn">Sign Up</button></form></a></li>
+                <li><a><form method="get" action="/users/signin"><button class="newbtn">Login</button></form></a></li>
+              <%}
+              else{%>
+                <li><a><form method="get" action="/users/signout"><button class="newbtn">Logout</button></form></a></li>
+                <li><a><strong><%= username %> </strong><i class="fas fa-user"></i></a></li>
+                <%}%>
+            </ul>
+            </div>
+        </nav>
+    <!-- navbar end -->
+    <div id = "listdiv1">
+        <h3> Checkout</h3>
+      </div>
+    <!-- progrss bar -->
+    <ul class=" prgrsbar">
+        <li class = "otherStep"> 
+            <p>
+                <span class = "stepno"> 1 </span>
+                <span class = "steptext">Flight</span>
+            </p>
+        </li>
+        <li class = "otherStep"> 
+            <p>
+                <span class = "stepno"> 2 </span>
+                <span class = "steptext">Passengers</span>
+            </p>
+        </li>
+        <li class = "currentStep"> 
+            <p>
+                <span class = "stepno"> 3 </span>
+                <span class = "steptext">Payment</span>
+            </p>
+        </li>
+    </ul>
+      <!-- progressbar end -->
+    </div>
+    <div class="tableoutline"> 
+        <table class="table"> 
+            <caption>Your Selected Tickets</caption> 
+            <thead> 
+                <tr> 
+                    <th>Flight ID</th> 
+                    <th>Route</th> 
+                    <th>Amount</th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+                <%billdata.forEach(function(data){%>
+                <tr> 
+                    <td><%= data.flightid %></td> 
+                    <td><%= data.arrloc %> TO <%= data.deploc %></td> 
+                    <td><%= data.price %></td> 
+                </tr>
+                <%})%>
+                <tr> 
+                    <td>Total Passengers: <%=tpsngr%></td> 
+                    <td></td> 
+                    <td><%=amount%></td> 
+                </tr>
+            </tbody> 
+        </table> 
+        <div class="btnbar">
+            <button class = "btn" id="back" onclick="history.back()">Go Back</button>
+            <button class = "btn" id="chkout" onclick="btnclicked()">Proceed to Checkout</button>
+        </div>
+    </div>
+</body>
+</html>

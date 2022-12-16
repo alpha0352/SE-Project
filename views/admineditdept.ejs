@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Department</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <script defer src="/javascripts/all.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/Chart.min.css">
+    <link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css">
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <style type="text/css">
+        .notif:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <%- include('../views/sidebarpartial')%>
+        <!-- <div id="sidebar" class='active'>
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header" style="height: 50px;margin-top: -30px">
+                    <i class="fa fa-users text-success me-4"></i>
+                    <span>ELMS</span>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-item">
+                            <a class='sidebar-link'>
+                                <form action="/admin/dashboard" method="GET">
+                                    <button class="special">
+                                        <i class="fa fa-home text-success"></i>
+                                        <span>Dashboard</span>
+                                    </button>
+                                </form>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa fa-building text-success"></i>
+                                <span>Department</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Add Department
+                                            </button>
+                                        </a>
+
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special"> Manage Department
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa fa-table text-success"></i>
+                                <span>Designation</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Add Designation
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Manage Designation
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa fa-users text-success"></i>
+                                <span>Employees</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Add Employee
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Manage Employee
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item  has-sub active">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa fa-user text-success"></i>
+                                <span>Users</span>
+                            </a>
+                            <ul class="submenu">
+                                <li>
+                                    <form action="/admin/adduser" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Add User
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/admin/manageuser" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Manage User
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="reports.html" class='sidebar-link'>
+                                <i class="fa fa-chart-bar text-success"></i>
+                                <span>Reports</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div> -->
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+
+                        <li class="dropdown">
+                            <a href="#" data-bs-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar me-1">
+                                    <img src="/images/admin.png" alt="" srcset="">
+                                </div>
+                                <div class="d-none d-md-block d-lg-inline-block">Hi, <%= adminname%></div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                        <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
+                        <div class="dropdown-divider"></div> -->
+                                <form action="/admin/logout" method="GET">
+                                    <button class="dropdown-item">
+                                        <i data-feather="log-out"></i> Logout</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="main-content container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Update Department</h3>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class='breadcrumb-header'>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html" class="text-success">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Update Department</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- // Basic multiple Column Form section start -->
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <% if (typeof(alert) !== 'undefined') { %>
+                                            <div class="alert alert-danger" role="alert" id="signup-alert">
+                                                <strong aria-hidden="true">
+                                                    <%= alert[0].msg %>
+                                                </strong>
+                                            </div>
+                                            <% } %>
+                                        <% if (message !== '') { %>
+                                            <div class="alert alert-success" role="alert" id="signup-alert">
+                                                <strong aria-hidden="true">
+                                                    <%= message %>
+                                                </strong>
+                                            </div>
+                                            <% } %>
+                                            <% if (exists !== '') { %>
+                                                <div class="alert alert-danger" role="alert" id="signup-alert">
+                                                    <strong aria-hidden="true">
+                                                        <%= exists %>
+                                                    </strong>
+                                                </div>
+                                                <% } %>
+                                        <form class="form" action="/admin/editdepartment/<%= dept[0].Dep_ID %>" method="POST">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group has-icon-left">
+                                                        <label for="email-id-icon">Deparment Name</label>
+                                                        <div class="position-relative">
+                                                            <input value="<%= dept[0].Dep_Name %>"
+                                                            name="deptname" type="text" class="form-control"
+                                                                placeholder="Department Name" id="email-id-icon">
+                                                            <div class="form-control-icon">
+                                                                <i class="fa fa-building"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-md-6 col-12">
+                                                <div class="form-group has-icon-left">
+                                                    <label for="first-name-icon">Contact</label>
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control" placeholder="contact" id="first-name-icon">
+                                                        <div class="form-control-icon">
+                                                            <i class="fa fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> --> 
+                                            <div class="col-12">
+                                                <div class="form-group has-icon-left">
+                                                    <label for="first-name-icon">Department Short Name</label>
+                                                    <div class="position-relative">
+                                                        <input name="deptshortname" value="<%= dept[0].Dep_ShortName%>" type="text" class="form-control" placeholder="Department ShortName"
+                                                            id="first-name-icon">
+                                                        <div class="form-control-icon">
+                                                            <i class="fa fa-building"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-4 col-12">
+                                                <div class="form-group has-icon-left">
+                                                    <label for="first-name-icon">Username</label>
+                                                    <div class="position-relative">
+                                                        <input type="text" class="form-control" placeholder="username" id="first-name-icon">
+                                                        <div class="form-control-icon">
+                                                            <i class="fa fa-user"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <!-- <div class="col-md-4 col-12">
+                                                <div class="form-group has-icon-left">
+                                                    <label for="first-name-icon">Password</label>
+                                                    <div class="position-relative">
+                                                        <input name="pswd" type="password" class="form-control"
+                                                            placeholder="password" id="first-name-icon">
+                                                        <div class="form-control-icon">
+                                                            <i class="fa fa-key"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-12">
+                                                <div class="form-group has-icon-left">
+                                                    <label for="first-name-icon">User Category</label>
+                                                    <div class="position-relative">
+                                                        <fieldset class="form-group">
+                                                            <select name="role" class="form-select" id="basicSelect">
+                                                                <option>admin</option>
+                                                                <option>user</option>
+                                                            </select>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            <div class="col-12 d-flex justify-content-end">
+                                                <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                            </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </section>
+            <!-- // Basic multiple Column Form section end -->
+        </div>
+    </div>
+    </div>
+    <script src="/javascripts/feather.min.js"></script>
+    <script src="/javascripts/perfect-scrollbar.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <script src="/javascripts/Chart.min.js"></script>
+    <script src="/javascripts/apexcharts.min.js"></script>
+    <script src="/javascripts/dashboard.js"></script>
+    <script src="/javascripts/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Employee</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <script defer src="/javascripts/all.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/table.css">
+    <!-- <link rel="stylesheet" href="/stylesheets/Chart.min.css"> -->
+    <link rel="stylesheet" href="/stylesheets/perfect-scrollbar.css">
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <style type="text/css">
+        .notif:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <%- include('../views/sidebarpartial')%>
+        <!-- <div id="sidebar" class='active'>
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header" style="height: 50px;margin-top: -30px">
+                    <i class="fa fa-users text-success me-4"></i>
+                    <span>ELMS</span>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-item">
+                            <a class='sidebar-link'>
+                                <form action="/admin/dashboard" method="GET">
+                                    <button class="special">
+                                        <i class="fa fa-home text-success"></i>
+                                        <span>Dashboard</span>
+                                    </button>
+                                </form>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa fa-building text-success"></i>
+                                <span>Department</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Add Department
+                                            </button>
+                                        </a>
+
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special"> Manage Department
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa fa-table text-success"></i>
+                                <span>Designation</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Add Designation
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Manage Designation
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa fa-users text-success"></i>
+                                <span>Employees</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Add Employee
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Manage Employee
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item  has-sub active">
+                            <a href="#" class='sidebar-link'>
+                                <i class="fa fa-user text-success"></i>
+                                <span>Users</span>
+                            </a>
+                            <ul class="submenu">
+                                <li>
+                                    <form action="/admin/adduser" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Add User
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/admin/login" method="get">
+                                        <a>
+                                            <button class="special">
+                                                Manage User
+                                            </button>
+                                        </a>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="reports.html" class='sidebar-link'>
+                                <i class="fa fa-chart-bar text-success"></i>
+                                <span>Reports</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div> -->
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+                <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+
+                        <li class="dropdown">
+                            <a href="#" data-bs-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar me-1">
+                                    <img src="/images/admin.png" alt="" srcset="">
+                                </div>
+                                <div class="d-none d-md-block d-lg-inline-block">Hi, <%= adminname%></div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                        <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
+                        <div class="dropdown-divider"></div> -->
+                                <form action="/admin/logout" method="GET">
+                                    <button class="dropdown-item">
+                                        <i data-feather="log-out"></i> Logout</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="main-content container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Manage Employee</h3>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class='breadcrumb-header'>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html" class="text-success">Dashboard</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Manage Employee</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <section class="section">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class='table' id="table1">
+                                <thead>
+                                    <tr>
+                                        <th>Emp_ID</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Gender</th>
+                                        <!-- <th>Age</th> -->
+                                        <th>Contact</th>
+                                        <!-- <th>UserName</th> -->
+                                        <th>Dept Name</th>
+                                        <th>Designation</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if (employees) {  %>
+                                    <% for (const [key, employee] of Object.entries(employees)) { %>
+                                    <tr>
+                                        <td><%= employee.Emp_ID%></td>
+                                        <td><%=  employee.name %></td>
+                                        <td><%= employee.Email %></td>
+                                        <td><%= employee.Gender %></td>
+                                        <!-- <td><%= employee.Age %></td> -->
+                                        <td><%= employee.Contact %></td>
+                                        <!-- <td><%= employee.UserName %></td> -->
+                                        <td><%= employee.Dep_ShortName %></td>
+                                        <td><%= employee.DesigName %></td>
+                                        <td>
+                                            <form action="/admin/editemployee/<%= employee.Emp_ID%>"
+                                                method="GET">
+                                                <button class="special"><i class="fa fa-pen text-success"></i></button>
+                                            </form>
+                                            <form action="/admin/deleteemployee/<%= employee.Emp_ID%>"
+                                                method="GET">
+                                                <button class="special"><i class="fa fa-trash text-danger"></i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                    <% }%>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/feather.min.js"></script>
+    <script src="/javascripts/perfect-scrollbar.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <!-- <script src="/javascripts/Chart.min.js"></script> -->
+    <script src="/javascripts/simple-datatables.js"></script>
+
+    <!-- <script src="/javascripts/table.css"></script> -->
+    <!-- <script src="/javascripts/apexcharts.min.js"></script> -->
+    <script src="/javascripts/vendors.js"></script>
+    <!-- <script src="/javascripts/dashboard.js"></script> -->
+    <script src="/javascripts/main.js"></script>
+</body>
+
+</html>

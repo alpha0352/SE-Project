@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/stylesheets/review.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="#" class="navbar-brand"><img src="/images/4b5d99c4-2f06-45be-88b2-5e4bb39f9885.png" id="logo"> GDC
+              AIRWAYS</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#"><strong>Home</strong></a></li>
+              <li><a href="/users/review"><strong>Review</strong></a></li>
+              <li><a href="/users/viewbooking"><strong>My Bookings</strong></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if(issession=="false"){ %>
+              <li><a>
+                  <form method="get" action="/users/signup"><button class="newbtn">Sign Up</button></form>
+                </a></li>
+              <li><a>
+                  <form method="get" action="/users/signin"><button class="newbtn">Login</button></form>
+                </a></li>
+              <%}
+              else{%>
+              <li><a>
+                  <form method="get" action="/users/signout"><button class="newbtn">Logout</button></form>
+                </a></li>
+              <li><a><strong><%= username %> </strong><i class="fas fa-user"></i></a></li>
+              <%}%>
+            </ul>
+            </div>
+        </nav>
+        <div>
+    <h2 id="fh2">WE APPRECIATE YOUR REVIEW!</h2>
+<h6 id="fh6">Your review will help us to improve our web hosting quality products, and customer services.</h6>
+
+
+<form id="feedback" action="/users/review" method="POST">
+    <div class="pinfo">Review Title</div>
+
+    <div class="form-group">
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-sign"></i></span>
+                <input name="reviewtitle" placeholder="Review Title" class="form-control" type="text">
+            </div>
+        </div>
+    </div>
+<br>
+    <!-- <div class="form-group">
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                <select class="form-control" id="rate">
+                    <option value="1star">1</option>
+                    <option value="2stars">2</option>
+                    <option value="3stars">3</option>
+                    <option value="4stars">4</option>
+                    <option value="5stars">5</option>
+                </select>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="pinfo">Write your Review.</div>
+
+    <div class="form-group">
+        <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                <textarea name="review" class="form-control" id="review" rows="3"></textarea>
+
+            </div>
+        </div>
+    </div>
+<br><br><br><br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+
+</form>
+</div>
+</body>
+</html>

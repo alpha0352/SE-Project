@@ -1,0 +1,146 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/listflights.css">
+        
+        <title><%=title%></title>
+    </head>
+    <body>
+
+    <!--NavBar-->
+    <nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/users/home" class="navbar-brand"><img src="/images/4b5d99c4-2f06-45be-88b2-5e4bb39f9885.png" id="logo"> GDC AIRWAYS</a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        		<span class="sr-only">Toggle navigation</span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	      </button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#"><strong>Home</strong></a></li>
+                    <li><a href="/users/review"><strong>Review</strong></a></li>
+                    <li><a href="/users/viewbooking"><strong>My Bookings</strong></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+          <% if(issession=="false"){ %>
+            <li><a><form method="get" action="/users/signup"><button class="newbtn">Sign Up</button></form></a></li>
+            <li><a><form method="get" action="/users/signin"><button class="newbtn">Login</button></form></a></li>
+          <%}
+          else{%>
+            <li><a><form method="get" action="/users/signout"><button class="newbtn">Logout</button></form></a></li>
+            <li><a><strong><%= username %> </strong><i class="fas fa-user"></i></a></li>
+            <%}%>
+        </ul>
+		</div>
+	</nav>
+	<!-- <nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/users/home" class="navbar-brand"><img src="/images/4b5d99c4-2f06-45be-88b2-5e4bb39f9885.png" id="logo"> GDC AIRWAYS</a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://localhost:3000/register"><strong>Sign up </strong><i class="fas fa-user-plus"></i></a></li>
+					<li><a href="http://localhost:3000/login"><strong>Login </strong><i class="fas fa-user"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav> -->
+  <!--NavBar End-->
+  <div id = "listdiv1">
+    <h3> Select <%=title%></h3>
+    <h4><%if(sampleData.length > 0)
+        {%>
+        <%= sampleData[0].deploc %> 
+        to 
+        <%= sampleData[0].arrloc %>
+        <%}
+        else{%>NO FLIGHT EXISTS!<%}%>
+    </h4>
+  </div>
+  <!-- Progress Bar -->
+
+  <ul class=" prgrsbar">
+    <li class = "currentStep"> 
+        <p>
+            <span class = "stepno"> 1 </span>
+            <span class = "steptext">Flight</span>
+        </p>
+    </li>
+    <li class = "otherStep"> 
+        <p>
+            <span class = "stepno"> 2 </span>
+            <span class = "steptext">Passengers</span>
+        </p>
+    </li>
+    <li class = "otherStep"> 
+        <p>
+            <span class = "stepno"> 3 </span>
+            <span class = "steptext">Payment</span>
+        </p>
+    </li>
+  </ul>
+  <% if(sampleData.length > 0)
+  {
+      sampleData.forEach(function(data){
+  %>
+  <div class="row">
+    <div class="col-md-2">
+        <p>
+            <span id="iata"><%=depIATA%></span>
+            <span id="time"><%=data.departure%></span>
+        </p>
+    </div>
+    <div class="col-md-3">
+        <p>
+            <%=data.tdif%>
+        </p>
+
+    </div>
+    <div class="col-md-2">
+        <p>
+            <span id="iata"><%=arrIATA%></span>
+            <span id="time"><%=data.arrival%></span>
+        </p>
+    </div>
+    <div class="col-md-3">
+        <p>PKR <%=data.price%></p>
+    </div>
+    <div class="col-md-2">
+        <% if(action == 'listoutbound') { %> 
+            <td><a href="/users/outbound/<%=data.flight_id%>/<%=data.departure%>" class = "bkbtn">BOOK</a></td>
+            <%
+             }
+             else {
+             %>
+             <td><a href="/users/inbound/<%=data.flight_id%>/<%=data.departure%>" class = "bkbtn">BOOK</a></td>
+             <%}%>
+    </div>
+  </div>   
+  <%});
+    }
+  else
+  {
+  %>
+    <h4>No Flight<h4></h4>
+  <%
+  }
+  %>     
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

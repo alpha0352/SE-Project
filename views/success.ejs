@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/javascripts/paymentsuccess.js" defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/success.css">
+    <title>Successful Payment</title>
+</head>
+<body>
+    
+    <!--NavBar-->
+    <nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/users/home" class="navbar-brand"><img src="/images/4b5d99c4-2f06-45be-88b2-5e4bb39f9885.png" id="logo"> GDC AIRWAYS</a>
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        		<span class="sr-only">Toggle navigation</span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	      </button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#"><strong>Home</strong></a></li>
+                    <li><a href="/users/review"><strong>Review</strong></a></li>
+                    <li><a href="/users/viewbooking"><strong>My Bookings</strong></a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+          <% if(issession=="false"){ %>
+            <li><a><form method="get" action="/users/signup"><button class="newbtn">Sign Up</button></form></a></li>
+            <li><a><form method="get" action="/users/signin"><button class="newbtn">Login</button></form></a></li>
+          <%}
+          else{%>
+            <li><a><form method="get" action="/users/signout"><button class="newbtn">Logout</button></form></a></li>
+            <li><a><strong><%= username %> </strong><i class="fas fa-user"></i></a></li>
+            <%}%>
+        </ul>
+		</div>
+	</nav>
+  <!--NavBar End-->
+
+  <ul class=" prgrsbar">
+    <li class = "Step"> 
+        <p>
+            <span class = "stepno"> 1 </span>
+            <span class = "steptext">Flight</span>
+        </p>
+    </li>
+    <li class = "Step"> 
+        <p>
+            <span class = "stepno"> 2 </span>
+            <span class = "steptext">Passengers</span>
+        </p>
+    </li>
+    <li class = "Step"> 
+        <p>
+            <span class = "stepno"> 3 </span>
+            <span class = "steptext">Payment</span>
+        </p>
+    </li>
+  </ul>
+    <div class="scsmsg">
+        <h1>SUCCESS</h1>
+        <p>You should be automatically redirected in <span id="seconds">5</span> seconds.</p>
+    </div>  
+</body>
+</html>

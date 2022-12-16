@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="/stylesheets/boarding.css" rel="stylesheet">
+</head>
+<body>
+    <%bpd.forEach(function(bpd){%>
+    
+    <div class="boarding-pass">
+        <div class="card card-top">
+            <div class="source">
+                <div class="code"><%=dept%></div>
+                <div class="city"><%= bpd.deploc %></div>
+            </div>
+            <div class="flight-median">
+                <i class="fas fa-plane"></i>
+            </div>
+            <div class="destination">
+                <div class="code"><%=arrival%></div>
+                <div class="city"><%= bpd.arrloc %></div>
+            </div>
+        </div>
+        <div class="median"></div>
+        <div class="card card-bottom">
+            <div class="card-row">
+                <div class="card-item">
+                    <span class="label">Passenger</span>
+                    <p class="content"><%= bpd.Name %></p>
+                </div>
+                <div class="card-item">
+                    <span class="label">Date</span>
+                    <p class="content"><%=bpd.date%></p>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card-item">
+                    <span class="label">Flight Now</span>
+                    <p class="content"><%= bpd.flight_id %></p>
+                </div>
+                <!-- <div class="card-item">
+                    <span class="label">Gate</span>
+                    <p class="content">B2</p>
+                </div> -->
+                <div class="card-item">
+                    <span class="label">Seat</span>
+                    <p class="content"><%= bpd.seat %></p>
+                </div>
+                <div class="card-item">
+                    <span class="label">Class</span>
+                    <p class="content"><%= bpd.class %></p>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card-item">
+                    <span class="label">Boarding Time</span>
+                    <p class="content"><%= bpd.arrival %> PST</p>
+                </div>
+                <div class="card-item">
+                    <span class="label">Travelling Time</span>
+                    <p class="content"><%= bpd.traveltime %></p>
+                </div>
+                <div class="card-item">
+                    <span class="label">Arrival Time</span>
+                    <p class="content"><%= bpd.arrival %> PST</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%})%>
+</body>
+</html>
