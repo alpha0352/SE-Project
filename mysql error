@@ -1,0 +1,4 @@
+in case you get this error: "this is incompatible with sql_mode=only_full_group_by"
+run this command in mysql command line client:
+
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
