@@ -1,0 +1,19 @@
+#logo{
+	width: 40px;
+	height:40px;
+	display: inline;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.row a{
+    margin-top: 150px;
+}
+.row h5{
+    text-align: center;
+}

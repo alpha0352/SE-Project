@@ -1,0 +1,115 @@
+#logo{
+	width: 36px;
+	height:36px;
+	display: inline;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+
+.prgrsbar{
+	margin-top: 50px;
+}
+.prgrsbar li{
+	margin-left: 30px;
+	display: inline-block ;
+	font-weight: bold;
+}
+
+.currentStep{
+	border-bottom: 4px solid black;
+	border-radius: 3px;
+
+}
+
+.currentStep .stepno{
+	color: rgb(3, 144, 186);
+}
+
+.otherStep{
+	border-bottom: 4px solid grey;
+	border-radius: 3px;
+	color: grey;
+}
+
+.prgrsbar .stepno{
+	font-size: 30px;
+}
+.prgrsbar .steptext{
+	font-size: 15px;
+}
+.psngrno{
+    width: 170px;
+    border-bottom: 5px solid rgb(54, 54, 54) ;
+    border-radius: 6px;
+    
+}
+.psngrno span{
+    padding-left: 5px;
+    font-family: Bree Serif; 
+	font-size: 25px;
+    
+}
+.psngrno .number{
+    color: rgb(3, 144, 186);
+}
+#form{
+    background-color: rgb(165, 165, 165);
+    height:auto;
+    width:700px;
+    margin:auto;
+    padding:20px;
+    opacity: 0.7;
+    border-radius:10px ;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+#listdiv1{
+	padding: 0px 20px;
+	margin-bottom: 10px;
+	font-family: Bree Serif; 
+	font-size: small;
+	height: 60px;;
+}
+
+#form .form-group{
+    padding-left: 30px;
+} 
+
+.form-group #input-group{
+    width:200px;
+    margin:20px;
+    margin-right: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    
+}
+#input-group select{
+    
+    width:200px;
+    margin:20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    color:rgb(40, 40, 40);
+}
+#dateinput{
+    padding: 7px;
+}
+::placeholder{
+    color: rgb(24, 24, 24);
+}
+
+#btn:hover{
+    color:rgb(3, 144, 186);
+    font-weight: bold;
+}
+
+.newbtn{
+	background: none;
+    border: none;
+}

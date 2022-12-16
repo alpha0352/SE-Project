@@ -1,0 +1,16 @@
+#logo{
+	width: 40px;
+	height:40px;
+	display: inline;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+
+#listdiv1{
+	padding: 0px 20px;
+	margin-bottom: 10px;
+	font-family: Bree Serif; 
+	font-size: small;
+	height: 60px;
+  font-weight: bold;
+}

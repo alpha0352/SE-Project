@@ -1,0 +1,90 @@
+#logo{
+	width: 40px;
+	height:40px;
+	display: inline;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+
+#listdiv1 h3{
+	padding: 0px 40px;
+	margin-bottom: 10px;
+	font-family: Bree Serif; 
+	font-size: 30px;
+	width: 375px;
+}
+
+.newbtn{
+	background: none;
+    border: none;
+}
+
+#br{
+	width:375px;
+	margin-left: 20px;
+	padding-left: 20px;
+}
+#br h3{
+	font-size: 25px;
+	padding-left: 5px;
+	border-bottom: 2px solid rgb(3, 144, 186);
+	border-radius: 2px;
+	width: 240px;
+}
+#br h4{
+	padding-left: 5px;
+	font-weight: bolder;
+}
+.container{
+	border:2px solid black; 
+	box-shadow: 5px black;
+}
+
+#locations h4{
+	padding-left: 5px;
+	font-weight: 600;
+	font-size:25px;
+}
+
+h3{
+	font-size: 20px;
+	width: 230px;
+	padding-left: 3px;
+}
+#phead{
+	border-top: 2px solid rgb(3, 144, 186);
+}
+
+.psngrheading{
+	padding-left: 5px;
+	font-size: 30px;
+	border-bottom: 2px solid rgb(3, 144, 186);
+	width: 205px;
+	border-radius: 3px;
+}
+
+h4{
+	padding-left: 5px;
+	font-weight: 550;
+	font-size:20px;
+}
+
+.bkbtn{
+	font-family: Bree Serif; 
+	font-size: large;
+	height: 45px;
+	border: 2px solid grey;
+	border-radius: 3px;
+	padding:10px;
+	background: none;
+	text-align: center;
+	color:rgb(3, 144, 186);
+}
+
+.bkbtn:hover{
+	border: 2px solid black;
+	font-weight: bold;
+	text-align: center;
+	height: 45px;
+	color: rgb(11, 126, 161);
+}

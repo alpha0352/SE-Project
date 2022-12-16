@@ -1,0 +1,49 @@
+#logo{
+	width: 40px;
+	height:40px;
+	display: inline;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+
+
+#listdiv1{
+	padding: 0px 20px;
+	margin-bottom: 10px;
+	font-family: Bree Serif; 
+	font-size: small;
+	height: 60px;;
+}
+.row{
+	width: 400px;
+	height: 120px;
+	margin: auto;
+	margin-bottom: 20px ;
+	padding: 35px 40px 50px 65px;
+	font-size: medium;
+	-moz-box-shadow: 0 0 3px #ccc;
+	-webkit-box-shadow: 0 0 3px #ccc;
+	box-shadow: 0 0 3px #ccc;;
+}
+.col-md-3{
+	align-items: center;
+	display: grid;
+	text-align: center;
+	height: 35px;
+}
+.bkbtn{
+	font-family: Bree Serif; 
+	font-size: large;
+	height: 45px;
+	border: none;
+	background: none;
+	text-align: center;
+}
+
+.bkbtn:hover{
+	font-weight: bold;
+	border:none;
+	text-align: center;
+	height: 45px;
+	color: rgb(3, 144, 186);
+}

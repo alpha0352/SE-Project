@@ -1,0 +1,104 @@
+#logo{
+	width: 40px;
+	height:40px;
+	display: inline;
+	margin-bottom: 10px;
+	vertical-align: top;
+}
+
+#listdiv1{
+	padding: 0px 20px;
+	margin-bottom: 10px;
+	font-family: Bree Serif; 
+	font-size: small;
+	height: 60px;;
+}
+
+ul{
+	list-style: none;
+	margin-left: 100px;
+	height: 60px;
+}
+
+.prgrsbar{
+	margin-top: 50px;
+}
+.prgrsbar li{
+	margin-left: 30px;
+	display: inline-block ;
+	font-weight: bold;
+}
+
+.currentStep{
+	border-bottom: 4px solid black;
+	border-radius: 3px;
+
+}
+
+.currentStep .stepno{
+	color: rgb(3, 144, 186);
+}
+
+.otherStep{
+	border-bottom: 4px solid grey;
+	border-radius: 3px;
+	color: grey;
+}
+
+.prgrsbar .stepno{
+	font-size: 30px;
+}
+.prgrsbar .steptext{
+	font-size: 15px;
+}
+
+.row{
+	width: 1200px;
+	height: 120px;
+	margin: auto;
+	margin-bottom: 20px ;
+	padding: 35px 20px 35px 65px;
+	font-size: medium;
+	-moz-box-shadow: 0 0 3px #ccc;
+	-webkit-box-shadow: 0 0 3px #ccc;
+	box-shadow: 0 0 3px #ccc;;
+}
+
+.col-md-2 p{
+	align-items: center;
+	display: grid;
+	text-align: center;
+	/* height: 65px; */
+}
+.col-md-3 p{
+	align-items: center;
+	display: grid;
+	text-align: center;
+	height: 45px;
+}
+#time{
+	font-weight: bolder;
+    font-size: x-large
+}
+
+.bkbtn{
+	font-family: Bree Serif; 
+	font-size: large;
+	height: 45px;
+	border: none;
+	background: none;
+	text-align: center;
+}
+
+.bkbtn:hover{
+	font-weight: bold;
+	border:none;
+	text-align: center;
+	height: 45px;
+	color: rgb(3, 144, 186);
+}
+
+.newbtn{
+	background: none;
+    border: none;
+}
